@@ -16,11 +16,11 @@ app.options("*", cors());
 app.use("/api/v1/post", postRoutes);
 
 if (ENV_VARS.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, ".next")));
+  app.use(express.static(path.join(__dirname, "/client/.next")));
 
   app.get("*", (req, res) => {
     res.sendFile(
-      path.resolve(__dirname, ".next", "server", "app", "index.html")
+      path.resolve(__dirname, "client", ".next", "server", "app", "index.html")
     );
   });
 }
