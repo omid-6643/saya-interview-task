@@ -23,12 +23,13 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { z } from "zod";
 import useCreatePost from "../hooks/use-create-post";
+import { Product } from "../types";
 
 const formSchema = z.object({
   author: z.string().min(2).max(50),
-  title: z.string().min(2).max(50),
+  title: z.string().min(2),
   content: z.string().min(2),
-  category: z.string().min(2).max(50),
+  category: z.string().min(2),
 });
 
 const CreatePost = () => {
@@ -44,7 +45,12 @@ const CreatePost = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    await createPost(values, { onSuccess: () => toast.success("create post") });
+    await createPost(values as Product, {
+      onSuccess: () => {
+        form.reset();
+        toast.success("create post");
+      },
+    });
   };
 
   return (
