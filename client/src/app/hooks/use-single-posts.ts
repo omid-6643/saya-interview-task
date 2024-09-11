@@ -12,6 +12,7 @@ const useSinglePost = (id: string) => {
   return useQuery({
     queryKey: [queryKeys.singlePost, id],
     queryFn: () => fetchPosts(id),
+    enabled: !!id,
   });
 };
 

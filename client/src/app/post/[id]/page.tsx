@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const SinglePost = ({ params: { id } }: { params: { id: string } }) => {
   const { data, isLoading } = useSinglePost(id);
@@ -35,7 +36,9 @@ const SinglePost = ({ params: { id } }: { params: { id: string } }) => {
         </div>
         <div className="flex flex-row gap-3 items-center justify-end w-full">
           <ConfirmModal id={id} />
-          <Button variant={"outline"}>Edit</Button>
+          <Link href={`/post/edit/${id}`}>
+            <Button variant={"outline"}>Edit</Button>
+          </Link>
         </div>
       </div>
       <div className="w-full h-[50vh] relative">
