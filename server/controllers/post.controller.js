@@ -19,6 +19,18 @@ export const getSinglePost = async (req, res) => {
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
+export const getRandomPost = async (req, res) => {
+  try {
+    const randomPost = await Post.aggregate([{ $sample: { size: 1 } }]);
+    if (randomPost.length === 0) {
+      return res.status(404).json({ message: "No posts found" });
+    }
+
+    res.status(200).json({ success: true, post: randomPost[0] });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+};
 
 export const createPost = async (req, res) => {
   try {
@@ -63,5 +75,3 @@ export const deletePost = async (req, res) => {
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
-
-
