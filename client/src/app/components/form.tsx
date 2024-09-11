@@ -29,11 +29,18 @@ import useUpdatePost from "../hooks/use-update-post";
 import { Product } from "../types";
 
 const formSchema = z.object({
-  author: z.string().min(2).max(50),
-  title: z.string().min(2),
-  content: z.string().min(2),
-  category: z.string().min(2),
+  author: z.string().min(2, { message: "Author is a required field" }),
+  title: z.string().min(2, { message: "Title is a required field" }),
+  content: z.string().min(2, { message: "Content is a required field" }),
+  category: z.string().min(2, { message: "Category is a required field" }),
 });
+
+const selectOption = [
+  { id: 1, value: "sport", name: "Sport" },
+  { id: 1, value: "it", name: "IT" },
+  { id: 1, value: "music", name: "Music" },
+  { id: 1, value: "game", name: "Game" },
+];
 
 const FormSection = ({ id }: { id?: string }) => {
   const router = useRouter();
@@ -80,9 +87,14 @@ const FormSection = ({ id }: { id?: string }) => {
 
   return (
     <Form {...form}>
+      <div className="flex flex-row justify-center items-center mb-14">
+        <h1 className="font-bold text-5xl underline ">
+          {id ? "Edit Post" : "Create Post"}
+        </h1>
+      </div>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col justify-between gap-6"
+        className="flex flex-col justify-between gap-6 m-auto w-2/3"
       >
         <div className="grid grid-cols-2 gap-x-6 items-center justify-between">
           <FormField
@@ -115,13 +127,11 @@ const FormSection = ({ id }: { id?: string }) => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {[{ id: 1, name: "sport", value: "sport" }].map(
-                        (option) => (
-                          <SelectItem key={option.id} value={option.value}>
-                            {option.name}
-                          </SelectItem>
-                        )
-                      )}
+                      {selectOption.map((option) => (
+                        <SelectItem key={option.id} value={option.value}>
+                          {option.name}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -162,8 +172,11 @@ const FormSection = ({ id }: { id?: string }) => {
             </FormItem>
           )}
         />
-
-        <Button type="submit">Submit</Button>
+        <div className="flex flex-row justify-end w-full">
+          <Button type="submit" className="w-32">
+            Submit
+          </Button>
+        </div>
       </form>
     </Form>
   );

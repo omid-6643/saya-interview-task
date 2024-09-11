@@ -21,7 +21,7 @@ const HeroSection = () => {
       }}
     >
       <div className="flex flex-col gap-4 p-10 absolute bottom-0">
-        <Badge variant="secondary" className="text-red-700 bg-blue-100 w-fit">
+        <Badge variant="secondary" className="text-red-700 bg-blue-100 w-fit capitalize">
           {data.post?.category}
         </Badge>
         <h2 className="text-4xl text-white">{data.post?.title}</h2>

@@ -19,7 +19,10 @@ const SinglePost = ({ params: { id } }: { params: { id: string } }) => {
     <article className="flex flex-col items-start justify-between gap-4 pb-10">
       <div className="flex flex-row w-full justify-between">
         <div className="flex flex-col items-start justify-between gap-4 w-full">
-          <Badge variant="secondary" className="text-red-700 bg-blue-100">
+          <Badge
+            variant="secondary"
+            className="text-red-700 bg-blue-100 capitalize"
+          >
             {data?.post.category}
           </Badge>
           <h2 className="text-xl md:text-2xl lg:text-4xl font-bold capitalize">

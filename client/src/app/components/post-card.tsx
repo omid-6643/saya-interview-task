@@ -18,7 +18,10 @@ const PostCard = ({ author, category, title, _id, image, avatar }: Product) => {
           />
         </div>
 
-        <Badge variant="secondary" className="text-red-700 bg-blue-100">
+        <Badge
+          variant="secondary"
+          className="text-red-700 bg-blue-100 capitalize"
+        >
           {category}
         </Badge>
         <p className="font-bold text-xl text-wrap">
