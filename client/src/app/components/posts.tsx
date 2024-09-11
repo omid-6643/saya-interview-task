@@ -7,10 +7,12 @@ import SkeletonCard from "./skeleton-card";
 const Posts = () => {
   const { data, isLoading } = usePosts();
 
-  console.log(data)
-
   if (isLoading) {
     return [1, 2, 3, 4].map((item) => <SkeletonCard key={item} />);
+  }
+
+  if (!data?.posts && !isLoading) {
+    return;
   }
 
   return (

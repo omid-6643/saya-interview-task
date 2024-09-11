@@ -13,6 +13,14 @@ const HeroSection = () => {
     return <Skeleton className="h-[50vh] w-full rounded-xl" />;
   }
 
+  if (!data?.post && !isLoading) {
+    return (
+      <div className="h-screen w-full flex flex-col justify-center items-center">
+        <h1 className="text-4xl font-bold uppercase">no data</h1>
+      </div>
+    );
+  }
+
   return (
     <section
       className="bg-cover bg-center h-[50vh] drop-shadow-lg rounded-2xl"
