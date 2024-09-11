@@ -38,7 +38,14 @@ export const getRandomPost = async (req, res) => {
 
 export const createPost = async (req, res) => {
   try {
-    const post = await Post.create(req.body);
+    const IMAGES = ["image-2.jpg", "image-3.jpg", "image-4.jpg"];
+
+    const PROFILE_PICS = ["/avatar1.png", "/avatar2.png", "/avatar3.png"];
+
+    const avatar =
+      PROFILE_PICS[Math.floor(Math.random() * PROFILE_PICS.length)];
+    const image = IMAGES[Math.floor(Math.random() * IMAGES.length)];
+    const post = await Post.create({ ...req.body, image, avatar });
     res.status(200).json({ success: true, post });
   } catch (error) {
     res.status(500).json({ success: false, message: "Internal Server Error" });

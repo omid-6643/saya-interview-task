@@ -2,6 +2,7 @@
 
 import ConfirmModal from "@/app/components/confirm-modal";
 import useSinglePost from "@/app/hooks/use-single-posts";
+import { generateNameInitials } from "@/app/utils/string";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -26,8 +27,10 @@ const SinglePost = ({ params: { id } }: { params: { id: string } }) => {
           </h2>
           <div className="flex flex-row gap-4 justify-between items-center">
             <Avatar className="size-8">
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarImage src={`/images/${data.post?.avatar}`} />
+              <AvatarFallback>
+                {generateNameInitials(data?.post.author)}
+              </AvatarFallback>
             </Avatar>
             <p className="text-sm capitalize text-gray-600/70">
               {data?.post.author}
@@ -41,15 +44,15 @@ const SinglePost = ({ params: { id } }: { params: { id: string } }) => {
           </Link>
         </div>
       </div>
-      <div className="w-full h-[50vh] relative">
+      <div className="w-full h-[60vh] relative">
         <Image
-          src={"/images/image-1.jpg"}
+          src={`/images/${data.post?.image || "image-2.jpg"}`}
           alt="image"
           fill
           className="rounded-lg bg-cover"
         />
       </div>
-      <p className="text-xl text-gray-600">{data?.post.content}</p>
+      <p className="text-xl text-gray-600">{data.post.content}</p>
     </article>
   );
 };

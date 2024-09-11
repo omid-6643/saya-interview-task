@@ -4,4 +4,6 @@ export type Product = {
   author: string;
   content: string;
   category: string;
+  avatar?: string;
+  image?: string;
 };

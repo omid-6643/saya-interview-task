@@ -17,6 +17,14 @@ const postSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String,
+    default: "",
+  },
+  avatar: {
+    type: String,
+    default: "",
+  },
 });
 
 export const Post = mongoose.model("Post", postSchema);
