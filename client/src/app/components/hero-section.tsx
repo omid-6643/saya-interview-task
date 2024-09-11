@@ -1,13 +1,39 @@
-'use client'
+"use client";
 
-import useRandomPost from "../hooks/use-random-post"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
+import useRandomPost from "../hooks/use-random-post";
 
 const HeroSection = () => {
-  const {data} = useRandomPost()
-  console.log(data)
-  return (
-    <div>HeroSection</div>
-  )
-}
+  const { data, isLoading } = useRandomPost();
 
-export default HeroSection
+  if (isLoading) {
+    return <Skeleton className="h-[50vh] w-full rounded-xl" />;
+  }
+
+  return (
+    <section
+      className="bg-cover bg-center h-[50vh] drop-shadow-lg rounded-2xl"
+      style={{ backgroundImage: "url(/images/image-1.jpg)" }}
+    >
+      <div className="flex flex-col gap-4 p-10 absolute bottom-0">
+        <Badge variant="secondary" className="text-red-700 bg-blue-100 w-fit">
+          {data.post?.category}
+        </Badge>
+        <h2 className="text-4xl text-white">{data.post?.title}</h2>
+        <div className="flex flex-row justify-start gap-6 items-center">
+          <Avatar className="size-8">
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+          <p className="text-sm text-white capitalize text-gray-600/70">
+            {data.post?.author}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;

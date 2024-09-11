@@ -3,7 +3,7 @@ import Posts from "./components/posts";
 
 const Home = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-10">
       <HeroSection />
       <Posts />
     </div>

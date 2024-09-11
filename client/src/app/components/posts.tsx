@@ -2,16 +2,20 @@
 import usePosts from "../hooks/use-posts";
 import { Product } from "../types";
 import PostCard from "./post-card";
+import SkeletonCard from "./skeleton-card";
 
 const Posts = () => {
   const { data, isLoading } = usePosts();
-  console.log(data);
+
+  if (isLoading) {
+    return [1, 2, 3, 4].map((item) => <SkeletonCard key={item} />);
+  }
+
   return (
-    <div>
-      {!isLoading &&
-        data?.posts?.map((product: Product) => (
-          <PostCard key={product._id} {...product} />
-        ))}
+    <div className="flex flex-row gap-6 flex-wrap">
+      {data?.posts?.map((product: Product) => (
+        <PostCard key={product._id} {...product} />
+      ))}
     </div>
   );
 };
