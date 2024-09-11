@@ -27,6 +27,7 @@ import useCreatePost from "../hooks/use-create-post";
 import useSinglePost from "../hooks/use-single-posts";
 import useUpdatePost from "../hooks/use-update-post";
 import { Product } from "../types";
+import SkeletonForm from "./skeleton-form";
 
 const formSchema = z.object({
   author: z.string().min(2, { message: "Author is a required field" }),
@@ -82,7 +83,7 @@ const FormSection = ({ id }: { id?: string }) => {
   };
 
   if (isLoading) {
-    return;
+    return <SkeletonForm />;
   }
 
   return (

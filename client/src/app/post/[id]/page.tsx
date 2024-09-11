@@ -1,6 +1,7 @@
 "use client";
 
 import ConfirmModal from "@/app/components/confirm-modal";
+import SkeletonPage from "@/app/components/skeleton-page";
 import useSinglePost from "@/app/hooks/use-single-posts";
 import { generateNameInitials } from "@/app/utils/string";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -13,7 +14,7 @@ const SinglePost = ({ params: { id } }: { params: { id: string } }) => {
   const { data, isLoading } = useSinglePost(id);
 
   if (isLoading) {
-    return;
+    return <SkeletonPage />;
   }
   return (
     <article className="flex flex-col items-start justify-between gap-4 pb-10">
