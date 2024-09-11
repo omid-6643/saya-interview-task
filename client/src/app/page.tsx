@@ -1,5 +1,5 @@
 import HeroSection from "./components/hero-section";
-import Posts from "./components/Posts";
+import Posts from "./components/posts";
 
 const Home = () => {
   return (
