@@ -4,7 +4,7 @@ import ENDPOINTS from "../utils/endpoints";
 import queryKeys from "../utils/queryKeys";
 
 const deletePost = async (id: string) => {
-  const response = await axios.delete(ENDPOINTS.post, { params: id });
+  const response = await axios.delete(`${ENDPOINTS.post}/${id}`);
   return response;
 };
 
