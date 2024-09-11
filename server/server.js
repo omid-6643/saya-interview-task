@@ -16,7 +16,7 @@ app.options("*", cors());
 app.use("/api/v1/post", postRoutes);
 
 if (ENV_VARS.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/client/.next")));
+  app.use(express.static(path.join(__dirname, "/client/.next/server/app")));
 
   app.get("*", (req, res) => {
     res.sendFile(
