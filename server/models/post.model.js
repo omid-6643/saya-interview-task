@@ -13,14 +13,6 @@ const postSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  image: {
-    type: String,
-    required: true,
-  },
-  avatar: {
-    type: String,
-    default: "",
-  },
   category: {
     type: String,
     required: true,
