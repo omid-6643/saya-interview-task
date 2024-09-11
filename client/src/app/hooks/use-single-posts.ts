@@ -10,7 +10,7 @@ const fetchPosts = async (id: string) => {
 
 const useSinglePost = (id: string) => {
   return useQuery({
-    queryKey: [queryKeys.singlePost],
+    queryKey: [queryKeys.singlePost, id],
     queryFn: () => fetchPosts(id),
   });
 };
