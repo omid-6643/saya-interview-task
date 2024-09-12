@@ -1,17 +1,12 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/iEOJ3UhOd4C
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
-import { AlignJustify, BookCheck } from "lucide-react";
-import Link from "next/link";
-import { Button } from "../../components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuLink,
   NavigationMenuList,
-} from "../../components/ui/navigation-menu";
-import { Sheet, SheetContent, SheetTrigger } from "../../components/ui/sheet";
+} from "@/components/ui/navigation-menu";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { AlignJustify, BookCheck } from "lucide-react";
+import Link from "next/link";
 
 const Navbar = () => {
   return (

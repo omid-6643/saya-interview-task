@@ -1,8 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
-import { Button } from "../../components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -11,7 +9,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "../../components/ui/dialog";
+} from "@/components/ui/dialog";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 import useDeletePost from "../hooks/use-delete-posts";
 
 const ConfirmModal = ({ id }: { id: string }) => {
