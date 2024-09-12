@@ -1,6 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { z } from "zod";
+import { Button } from "../../components/ui/button";
 import {
   Form,
   FormControl,
@@ -8,21 +13,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from "../../components/ui/form";
+import { Input } from "../../components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
-import { z } from "zod";
+} from "../../components/ui/select";
+import { Textarea } from "../../components/ui/textarea";
 import useCreatePost from "../hooks/use-create-post";
 import useSinglePost from "../hooks/use-single-posts";
 import useUpdatePost from "../hooks/use-update-post";

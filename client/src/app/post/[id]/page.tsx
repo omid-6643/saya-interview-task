@@ -4,11 +4,15 @@ import ConfirmModal from "@/app/components/confirm-modal";
 import SkeletonPage from "@/app/components/skeleton-page";
 import useSinglePost from "@/app/hooks/use-single-posts";
 import { generateNameInitials } from "@/app/utils/string";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "../../../components/ui/avatar";
+import { Badge } from "../../../components/ui/badge";
+import { Button } from "../../../components/ui/button";
 
 const SinglePost = ({ params: { id } }: { params: { id: string } }) => {
   const { data, isLoading } = useSinglePost(id);

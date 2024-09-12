@@ -3,15 +3,15 @@
  * @see https://v0.dev/t/iEOJ3UhOd4C
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
-import { Button } from "@/components/ui/button";
+import { AlignJustify, BookCheck } from "lucide-react";
+import Link from "next/link";
+import { Button } from "../../components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuLink,
   NavigationMenuList,
-} from "@/components/ui/navigation-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { AlignJustify, BookCheck } from "lucide-react";
-import Link from "next/link";
+} from "../../components/ui/navigation-menu";
+import { Sheet, SheetContent, SheetTrigger } from "../../components/ui/sheet";
 
 const Navbar = () => {
   return (
